@@ -139,28 +139,3 @@ def get_page(url):
     else:
         print "Page not in cache: " + url
         return None
-    
-
-
-
-
-
-#Here are a few examples from the test site:
-
-index, graph = crawl_web('http://www.udacity.com/cs101x/final/multi.html')
-
-
-print adv_lookup(index, ['Python','Virginia'])
-#>>> ['http://www.udacity.com/cs101x/final/b.html', 'http://www.udacity.com/cs101x/final/a.html']
-
-print adv_lookup(index, ['Monty Python',''])
-#>>> ['http://www.udacity.com/cs101x/final/a.html']
-
-print adv_lookup(index, ['Python programming language',''])
-#>>> ['http://www.udacity.com/cs101x/final/b.html']
-
-print adv_lookup(index, ['Thomas Jefferson','Nelson'])
-#>>> ['http://www.udacity.com/cs101x/final/b.html', 'http://www.udacity.com/cs101x/final/a.html']
-
-print adv_lookup(index, ['most powerful weapon',''])
-#>>> ['http://www.udacity.com/cs101x/final/a.html']
