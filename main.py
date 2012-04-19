@@ -40,7 +40,13 @@ def adv_lookup(index, query):
                 res.append(e)
       
     if res!=[]:
-        return res
+        fres=[]
+        for e in res:
+            if nonquery not in cache[e].split():
+                fres.append(e)
+        return fres
+                
+                
 
 def crawl_web(seed): # returns index, graph of inlinks
     tocrawl = [seed]
@@ -143,6 +149,7 @@ def get_page(url):
 
 index, graph = crawl_web('http://www.udacity.com/cs101x/final/multi.html')
 
+
 print adv_lookup(index, ['Python','Virginia'])
 #>>> ['http://www.udacity.com/cs101x/final/b.html', 'http://www.udacity.com/cs101x/final/a.html']
 
@@ -152,7 +159,7 @@ print adv_lookup(index, ['Monty Python',''])
 print adv_lookup(index, ['Python programming language',''])
 #>>> ['http://www.udacity.com/cs101x/final/b.html']
 
-print adv_lookup(index, ['Thomas Jefferson',''])
+print adv_lookup(index, ['Thomas Jefferson','Nelson'])
 #>>> ['http://www.udacity.com/cs101x/final/b.html', 'http://www.udacity.com/cs101x/final/a.html']
 
 print adv_lookup(index, ['most powerful weapon',''])
