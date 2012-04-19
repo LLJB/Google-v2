@@ -1,6 +1,7 @@
 def adv_lookup(index, query):
     
-    query = query.split()
+    nonquery = query[1]
+    query = query[0].split()
     res=[]
     tres={}
     for keyword in query:
@@ -142,17 +143,17 @@ def get_page(url):
 
 index, graph = crawl_web('http://www.udacity.com/cs101x/final/multi.html')
 
-print adv_lookup(index, 'Python')
+print adv_lookup(index, ['Python','Virginia'])
 #>>> ['http://www.udacity.com/cs101x/final/b.html', 'http://www.udacity.com/cs101x/final/a.html']
 
-print adv_lookup(index, 'Monty Python')
+print adv_lookup(index, ['Monty Python',''])
 #>>> ['http://www.udacity.com/cs101x/final/a.html']
 
-print adv_lookup(index, 'Python programming language')
+print adv_lookup(index, ['Python programming language',''])
 #>>> ['http://www.udacity.com/cs101x/final/b.html']
 
-print adv_lookup(index, 'Thomas Jefferson')
+print adv_lookup(index, ['Thomas Jefferson',''])
 #>>> ['http://www.udacity.com/cs101x/final/b.html', 'http://www.udacity.com/cs101x/final/a.html']
 
-print adv_lookup(index, 'most powerful weapon')
+print adv_lookup(index, ['most powerful weapon',''])
 #>>> ['http://www.udacity.com/cs101x/final/a.html']
